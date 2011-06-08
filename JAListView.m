@@ -637,6 +637,9 @@ NSString * const JAListViewDraggingPasteboardType = @"JAListViewDraggingPasteboa
 }
 
 - (void)reloadAllViews {
+    for (NSView* cachedView in self.cachedViews) {
+        [cachedView removeFromSuperview];
+    }
     [self.cachedViews removeAllObjects];
     
     NSUInteger numberOfViews = [self numberOfViews];
